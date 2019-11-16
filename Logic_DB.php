@@ -30,8 +30,20 @@ if (isset($_POST['submitButton'])) {
     echo $_POST['insertType'] . " - ";
     echo $_POST['insertCategory'] . " - ";
     echo $_POST['insertBarcode'] . "<br/>";
-}
+    $barcode = $_POST['insertBarcode'];
+    $brand = $_POST['insertBrand'];
+    $type = $_POST['insertType'];
+    $category = $_POST['insertCategory'];
 
+    $queryInsert = "INSERT INTO prodotti(id,idbarcode,category,brand,producttype,image,islist,newbuy,note) 
+                    VALUES (null, '$barcode','$category', '$brand', '$type',' ',null ,null ,null )";
+
+    if ($connection->query($queryInsert)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $queryInsert . "<br>" . $connection->error;
+    }
+}
 
 CloseCon($connection);
 
