@@ -1,4 +1,5 @@
 <?php
+/* This file takes care of inserting new Product form the web interface */
 
 $Databse = "my_databasedispensa";
 $Host = "localhost";
@@ -51,5 +52,4 @@ CloseCon($connection);
 function CloseCon($conn) {
     $conn->close();
 }
-
 ?>
